@@ -1,4 +1,10 @@
-# Lawn Mower - (not framework - pure Javascript)
+# Lawn Mower - (vanilla Javascript)
+
+This is a solution to the lawn-mower problem where given a lawn and some lawn-mowers and their moves, we need to compute
+the final position of lawn mowers.
+
+This solution has been written in pure Javascript and is meant to run on node.js (depends on fs to read files on the
+disk).
 
 ## Warning:
 
@@ -57,3 +63,8 @@ Output: (final position of mowers:
 1 3 N
 5 1 E
 ```
+
+## Github
+You can find a version of this project on github
+
+https://github.com/francoisle/lawn-mowers
