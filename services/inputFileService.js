@@ -5,8 +5,8 @@ const utils = require("../helpers/utils");
  * @param lines the lines of the input file to check
  */
 function checkInputFile(lines) {
-    if (!lines || lines.length === 0) {
-        return null;
+    if (!lines || lines.length === 0 || !Array.isArray(lines)) {
+        return false;
     }
 
     // Its length must be an odd number (initial position + (lawn mower starting position + lawn mower moves)+ = 1 + 2k; k number of lawn mowers)
@@ -16,17 +16,17 @@ function checkInputFile(lines) {
 
     // Check format for area size: expecting 2 strictly positives integers
     const areaSize = lines[0].split(" ");
-    if (areaSize.length !== 2 && (!utils.isPositiveInt(areaSize[0]) || !utils.isPositiveInt(areaSize[1]))) {
+    if (areaSize.length !== 2 || !utils.isPositiveInt(+areaSize[0]) || !utils.isPositiveInt(+areaSize[1])) {
         return false;
     }
 
     // Check format for the lawn mower starting positions
     for (let i = 1; i < lines.length; i += 2) {
         const lawnMowerPosition = lines[i].split(" ");
-        if (lawnMowerPosition.length !== 3 &&
-            (!utils.isInLawn(areaSize[0], areaSize[0]) ||
-                !utils.isInLawn(areaSize[1], areaSize[1]) ||
-                !isValidDirection(areaSize[2]))) {
+        if (lawnMowerPosition.length !== 3 ||
+            (!utils.isInLawn(+lawnMowerPosition[0], +areaSize[0]) ||
+                !utils.isInLawn(+lawnMowerPosition[1], +areaSize[1]) ||
+                !isValidDirection(lawnMowerPosition[2]))) {
             return false;
         }
     }

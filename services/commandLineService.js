@@ -16,7 +16,7 @@ function isCommandLineValid(args) {
     // Check we have an input-file given as file=filename.txt
     const split = args[2].split("=");
     if (split.length === 2) {
-        return split[1].endsWith(".txt");
+        return split[0] === "file" && split[1].endsWith(".txt");
     }
 
     // If we are here; we received something we didn't expect
@@ -30,14 +30,12 @@ function isCommandLineValid(args) {
  * @return the filename if the command line is correct, null otherwise
  */
 function getInputFilename(args) {
-    if (!args || args.length !== 3) {
+    if (!isCommandLineValid(args)) {
         return null;
     }
 
     const split = args[2].split("=");
-    if (split.length === 2 && split[1].endsWith(".txt")) {
-        return split[1];
-    }
+    return split[1];
 }
 
 module.exports = {

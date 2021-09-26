@@ -5,9 +5,9 @@ const Engine = require("./lawmMower/Engine");
 
 // Lawn Mower entry point
 (function () {
-    // 1. Verify and parse the command the command line
+    // 1. Verify the format of the command the command line
     const args = process.argv;
-    parseCommandLine(args);
+    verifyCommandLine(args);
 
     // 2. Get and parse the input file
     const inputLines = parseInputFile(args);
@@ -21,7 +21,11 @@ const Engine = require("./lawmMower/Engine");
     printSummary(inputLines, finalPositions);
 })();
 
-function parseCommandLine(args) {
+/**
+ * Checks if the command line is correct. We are expecting something like "npm start file=[filename].txt"
+ * @param args
+ */
+function verifyCommandLine(args) {
     if (!commandLineService.isCommandLineValid(args)) {
         console.error("Invalid command line. \nExpected 'npm start file=[filename].txt'\n");
         process.exit(-1);
