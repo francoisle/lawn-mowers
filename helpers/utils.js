@@ -34,7 +34,7 @@ function isPositiveInt(p) {
  * @returns {*|boolean} Whether the lawnMower coordinate is valid
  */
 function isInLawn(lawnMowerPosition, maxPosition) {
-    return isPositiveInt(lawnMowerPosition) && lawnMowerPosition <= maxPosition;
+    return lawnMowerPosition >= 0 && lawnMowerPosition <= maxPosition;
 }
 
 module.exports = {

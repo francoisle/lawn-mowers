@@ -34,10 +34,6 @@ describe('utils package', () => {
             expect(utils.isPositiveInt(1 / 0)).toBe(false);
         });
 
-        it("shall return false for 0", () => {
-            expect(utils.isPositiveInt(0)).toBe(false);
-        });
-
         it("shall return true for positive numbers", () => {
             expect(utils.isPositiveInt(7)).toBe(true);
         });
@@ -54,10 +50,6 @@ describe('utils package', () => {
 
         it("shall return false for non finite numbers", () => {
             expect(utils.isInLawn(1 / 0, 10)).toBe(false);
-        });
-
-        it("shall return false for 0", () => {
-            expect(utils.isInLawn(0, 10)).toBe(false);
         });
 
         it("shall return true for positive numbers", () => {
