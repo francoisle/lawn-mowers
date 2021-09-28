@@ -47,7 +47,7 @@ function printSummary(inputLines, finalPositions) {
     console.log("Input file:");
     inputLines.forEach(l => console.log(l));
 
-    console.log("\nOutput: (final position of mowers:");
+    console.log("\nOutput: (final position of mowers)");
     finalPositions.forEach(p => {
         console.log(`${p.x} ${p.y} ${p.d}`);
     });
