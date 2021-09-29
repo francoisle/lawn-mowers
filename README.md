@@ -6,9 +6,6 @@ the final position of lawn mowers.
 This solution has been written in pure Javascript and is meant to run on node.js (depends on fs to read files on the
 disk).
 
-This is a solution to the lawn-mower problem where given a lawn and some lawn-mowers and their moves, we need to compute
-the final position of lawn mowers.
-
 ## Warning:
 
 This solution has been developed and tested against node.js v14.15.4 (https://nodejs.org/download/release/v14.15.4/). It
