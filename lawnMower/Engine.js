@@ -26,7 +26,7 @@ function Engine(inputLines) {
     // Exposed functions
     /**
      * This functions causes all lawn mowers to execute their sequence of moves
-     * Once this function exit, the lawn mower are at their final positions
+     * Once this function exits, the lawn mowers are at their final positions
      */
     function execute() {
         lawnMowers.forEach(lawnMower => playLawnMower(lawnMower));
