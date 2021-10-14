@@ -34,8 +34,8 @@ function checkInputFile(lines) {
     // Check for the lawn mower moves (instructions)
     for (let i = 2; i < lines.length; i += 2) {
         const moves = lines[i].split("");
-        for (let d of moves) {
-            if (!isValidMove(d)) {
+        for (const move of moves) {
+            if (!isValidMove(move)) {
                 return false;
             }
         }

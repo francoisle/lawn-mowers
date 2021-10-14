@@ -12,6 +12,7 @@ module.exports = {
     },
     "rules": {
         "semi": ["error", "always"],
-        "quotes": [2, "double", {"avoidEscape": true}]
+        "quotes": [2, "double", {"avoidEscape": true}],
+        "prefer-const": "error"
     }
 };

@@ -1,9 +1,9 @@
 const engineHelper = require("../helpers/engineHelper");
 
 /**
- * The engine responsible for computing the instructions
+ * The engine responsible for running a scenario.
  * @param inputLines
- * @returns {{play: play, getPositions: getPositions}}
+ * @returns {{execute: execute, getPositions: getPositions}}
  * @constructor
  */
 const LawnMower = require("./LawnMower");
@@ -21,7 +21,7 @@ function Engine(inputLines) {
     const maxX = areaSize[0];
     const maxY = areaSize[1];
 
-    let lawnMowers = initLawnMowers();
+    const lawnMowers = initLawnMowers();
 
     // Exposed functions
     /**
@@ -53,7 +53,7 @@ function Engine(inputLines) {
      * @returns {*[]}
      */
     function initLawnMowers() {
-        let lawnMowers = [];
+        const lawnMowers = [];
         for (let i = 1; i < inputLines.length; i += 2) {
             const initialPosition = inputLines[i].split(" ");
             const lawnMower = new LawnMower(
