@@ -5,7 +5,7 @@
  * @returns {string}
  */
 function removeLineBreaks(line) {
-    return (' ' + line).slice(1).replace(/\r?\n|\r/g, "");
+    return (" " + line).slice(1).replace(/\r?\n|\r/g, "");
 }
 
 /**
@@ -22,7 +22,7 @@ function isOdd(p) {
  * @param p
  */
 function isPositiveInt(p) {
-    return typeof (p) === 'number' &&
+    return typeof (p) === "number" &&
         isFinite(p) &&
         Math.round(p) === p && p > 0;
 }

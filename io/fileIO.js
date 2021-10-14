@@ -1,4 +1,4 @@
-const fs = require('fs');
+const fs = require("fs");
 
 const utils = require("../helpers/utils");
 
@@ -10,7 +10,7 @@ function readFile(filename) {
     let inputLines = [];
 
     try {
-        const file = fs.readFileSync("./" + filename, 'utf-8');
+        const file = fs.readFileSync("./" + filename, "utf-8");
         // Split the lines
         inputLines = file.split("\n");
 

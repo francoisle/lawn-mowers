@@ -1,27 +1,27 @@
 const utils = require("./utils");
 
 
-describe('utils package', () => {
-    describe('isOdd', () => {
+describe("utils package", () => {
+    describe("isOdd", () => {
 
-        it('shall return false for an even number', () => {
+        it("shall return false for an even number", () => {
             expect(utils.isOdd(4)).toBe(false);
         });
 
-        it('shall return true for an odd number', () => {
+        it("shall return true for an odd number", () => {
             expect(utils.isOdd(5)).toBe(true);
         });
     });
 
 
-    describe('removeLineBreaks', () => {
+    describe("removeLineBreaks", () => {
         it("shall remove line break from a string containing line break", () => {
             const input = "hello world\r";
             expect(utils.removeLineBreaks(input)).toBe("hello world");
         });
     });
 
-    describe('isPositiveInt', () => {
+    describe("isPositiveInt", () => {
         it("shall return false for letters", () => {
             expect(utils.isPositiveInt("d")).toBe(false);
         });
