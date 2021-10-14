@@ -4,7 +4,7 @@ const utils = require("../helpers/utils");
  * Checks if an input file is valid
  * @param lines the lines of the input file to check
  */
-function checkInputFile(lines) {
+function checkInputData(lines) {
     if (!lines || lines.length === 0 || !Array.isArray(lines)) {
         return false;
     }
@@ -58,6 +58,6 @@ function isValidMove(move) {
 }
 
 module.exports = {
-    checkInputFile,
+    checkInputData,
     isValidMove
 };

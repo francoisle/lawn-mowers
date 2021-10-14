@@ -35,7 +35,7 @@ function verifyCommandLine(args) {
 function parseInputFile(args) {
     const filename = commandLineService.getInputFilename(args);
     const inputLines = io.readFile(filename);
-    if (!inputFileService.checkInputFile(inputLines)) {
+    if (!inputFileService.checkInputData(inputLines)) {
         console.error("Input file has incorrect area and/or lawn mowers settings.");
         process.exit(-1);
     }
@@ -48,7 +48,5 @@ function printSummary(inputLines, finalPositions) {
     inputLines.forEach(l => console.log(l));
 
     console.log("\nOutput: (final position of mowers)");
-    finalPositions.forEach(p => {
-        console.log(`${p.x} ${p.y} ${p.d}`);
-    });
+    finalPositions.forEach(p => console.log(`${p.x} ${p.y} ${p.d}`));
 }

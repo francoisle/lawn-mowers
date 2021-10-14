@@ -1,32 +1,32 @@
+const {checkInputData} = require("../services/inputFileService");
 const engineHelper = require("../helpers/engineHelper");
+
+const LawnMower = require("./LawnMower");
+const Lawn = require("./Lawn");
 
 /**
  * The engine responsible for running a scenario.
  * @param inputLines
- * @returns {{execute: execute, getPositions: getPositions}}
+ * @returns {{getPositions: (function(): {x, y, d}[]), execute: execute}|null}
  * @constructor
  */
-const LawnMower = require("./LawnMower");
-const {checkInputFile} = require("../services/inputFileService");
-
 function Engine(inputLines) {
 
     // Make sure the engine is initialized with valid data.
-    if (!checkInputFile(inputLines)) {
+    if (!checkInputData(inputLines)) {
         return null;
     }
 
     // Some useful constants for computing moves.
     const areaSize = inputLines[0].split(" ");
-    const maxX = areaSize[0];
-    const maxY = areaSize[1];
+    const lawn = new Lawn(+areaSize[0], +areaSize[1]);
 
     const lawnMowers = initLawnMowers();
 
     // Exposed functions
     /**
      * This functions causes all lawn mowers to execute their sequence of moves
-     * One this function exit, the lawn mower are at their final positions
+     * Once this function exit, the lawn mower are at their final positions
      */
     function execute() {
         lawnMowers.forEach(lawnMower => {
@@ -36,8 +36,8 @@ function Engine(inputLines) {
 
     /**
      * Return the positions of all lawn mowers.
-     * If call before execute, it returns their initial position and if it is run after
-     * it returns their final position.
+     * If called before execute, it returns their initial positions and if it is ran after
+     * it returns their final positions.
      * @returns {{x, y, d}[]}
      */
     function getPositions() {
@@ -70,21 +70,26 @@ function Engine(inputLines) {
 
     /**
      * This functions executes all the moves one by one for a lawn mower
-     * Note that all the moves are executed at once so this functions effectively take one lawn mower
+     * Note that all the moves are executed so this functions effectively take one lawn mower
      * from its initial position to its final position.
      * @param lawnMower The lawn mower to move
      */
     function playLawnMower(lawnMower) {
-        lawnMower.getMoves().forEach(move => {
-            try {
-                const {x, y, d} = lawnMower.getPosition();
-                // The move needs to be applied by the engine because only the engine knows the boundary of the lawn
-                const {newX, newY, newD} = engineHelper.applyMove(x, y, d, move, maxX, maxY);
-                lawnMower.setPosition(newX, newY, newD);
-            } catch (err) {
-                throw "An error occurred while trying to apply a move: " + err;
-            }
-        });
+        try {
+            let {x, y, d} = lawnMower.getPosition();
+
+            // Apply all the moves one by one
+            // The moves need to be applied by the engine because only the engine knows the boundaries of the lawn it is its responsibility
+            lawnMower.getMoves().forEach(move => ({
+                newX: x,
+                newY: y,
+                newD: d
+            } = engineHelper.applyMove(x, y, d, move, lawn.getMaxX(), lawn.getMaxY())));
+
+            lawnMower.setPosition(x, y, d);
+        } catch (err) {
+            throw "An error occurred while trying to apply a move: " + err;
+        }
     }
 
     return {

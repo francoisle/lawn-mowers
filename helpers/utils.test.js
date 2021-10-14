@@ -40,6 +40,10 @@ describe("utils package", () => {
     });
 
     describe("isInLawn", () => {
+        it("shall return true for O", () => {
+            expect(utils.isInLawn(0, 10)).toBe(true);
+        });
+
         it("shall return false for letters", () => {
             expect(utils.isInLawn("d", 10)).toBe(false);
         });

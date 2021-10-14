@@ -5,9 +5,9 @@
  *
  * If we needed we could also store the last executed move so that we could freeze and resume a lawn mower
  *
- * @param x0 The x starting position of the lawnMower
- * @param y0 The y starting position of the lawnMower
- * @param d0 The d starting position of the lawnMower
+ * @param x0 The x starting position of the lawn mower
+ * @param y0 The y starting position of the lawn mower
+ * @param d0 The d starting position of the lawn mower
  * @param moves The list of moves for the lawn mower
  * @returns {{getPosition: (function(): {d: *, x: *, y: *}), toString: (function(): string), getMoves: (function(): *), setPosition: setPosition}}
  * @constructor

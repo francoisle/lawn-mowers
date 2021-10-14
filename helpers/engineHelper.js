@@ -59,7 +59,7 @@ function applyMove(x, y, d, move, maxX, maxY) {
 }
 
 /**
- * Utility function that compute a new direction from an existing direction and an "L" or "R" move
+ * Utility function that computes a new direction from an existing direction and an "L" or "R" move
  * @param initialDirection The initial direction before applying the move
  * @param move The move to apply
  * @returns {string} The new direction
