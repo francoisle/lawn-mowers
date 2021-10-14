@@ -39,9 +39,7 @@ function Engine(inputLines) {
      * @returns {{x, y, d}[]}
      */
     function getPositions() {
-        return lawnMowers.map(lawnMower => {
-            return lawnMower.getPosition();
-        });
+        return lawnMowers.map(lawnMower => return lawnMower.getPosition());
     }
 
 
@@ -77,7 +75,7 @@ function Engine(inputLines) {
             let {x, y, d} = lawnMower.getPosition();
 
             // Apply all the moves one by one
-            // The moves need to be applied by the engine because only the engine knows the boundaries of the lawn it is its responsibility
+            // The moves need to be applied by the engine because only the engine knows the boundaries of the lawn and is its responsibility
             lawnMower.getMoves().forEach(move => ({
                 newX: x,
                 newY: y,
