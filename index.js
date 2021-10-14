@@ -1,7 +1,7 @@
 const commandLineService = require("./services/commandLineService");
 const inputFileService = require("./services/inputFileService");
 const io = require("./io/fileIO");
-const Engine = require("./lawmMower/Engine");
+const Engine = require("./lawnMower/Engine");
 
 // Lawn Mower entry point
 (function () {
