@@ -39,7 +39,7 @@ function Engine(inputLines) {
      * @returns {{x, y, d}[]}
      */
     function getPositions() {
-        return lawnMowers.map(lawnMower => return lawnMower.getPosition());
+        return lawnMowers.map(lawnMower => lawnMower.getPosition());
     }
 
 
