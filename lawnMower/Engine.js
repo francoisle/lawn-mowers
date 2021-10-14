@@ -29,9 +29,7 @@ function Engine(inputLines) {
      * Once this function exit, the lawn mower are at their final positions
      */
     function execute() {
-        lawnMowers.forEach(lawnMower => {
-            playLawnMower(lawnMower);
-        });
+        lawnMowers.forEach(lawnMower => playLawnMower(lawnMower));
     }
 
     /**

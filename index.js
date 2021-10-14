@@ -5,7 +5,7 @@ const Engine = require("./lawnMower/Engine");
 
 // Lawn Mower entry point
 (function () {
-    // 1. Verify the format of the command the command line
+    // 1. Verify the format of the command line
     const args = process.argv;
     verifyCommandLine(args);
 

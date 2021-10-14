@@ -44,6 +44,10 @@ describe("inputFileService", () => {
             });
         });
 
+        it("shall return false if no lawn mower is present", () => {
+            expect(inputFileService.checkInputData(["6 7", "1 2 N"])).toBe(false);
+        });
+
         describe("First line check", () => {
             it("shall return false if first line has not an int for maxX", () => {
                 expect(inputFileService.checkInputData(["a 2"])).toBe(false);

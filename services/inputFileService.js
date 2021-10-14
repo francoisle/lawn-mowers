@@ -9,6 +9,11 @@ function checkInputData(lines) {
         return false;
     }
 
+    // It must have a least one lawn mower
+    if (lines.length < 3) {
+        return false;
+    }
+
     // Its length must be an odd number (initial position + (lawn mower starting position + lawn mower moves)+ = 1 + 2k; k number of lawn mowers)
     if (!utils.isOdd(lines.length)) {
         return false;
@@ -50,11 +55,11 @@ function checkInputData(lines) {
  * @return Whether the check direction is valid
  */
 function isValidDirection(direction) {
-    return direction === "N" || direction === "E" || direction === "W" || direction === "S";
+    return ["N", "E", "W", "S"].includes(direction);
 }
 
 function isValidMove(move) {
-    return move === "L" || move === "R" || move === "F";
+    return ["L", "R", "F"].includes(move);
 }
 
 module.exports = {

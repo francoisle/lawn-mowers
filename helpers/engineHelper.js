@@ -16,9 +16,7 @@ function applyMove(x, y, d, move, maxX, maxY) {
         throw "Invalid move: " + move;
     }
 
-    let newX = x;
-    let newY = y;
-    let newD = d;
+    let {x: newX, y: newY, d: newD} = {x, y, d};
 
     switch (move) {
         case "R":
