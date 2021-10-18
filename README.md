@@ -1,8 +1,8 @@
 # Lawn Mower - (Vanilla Javascript)
 
 This is a solution to the lawn mower problem where given a lawn, some lawn mowers and their moves, we need to compute
-their final position, after they move has been executed. In this solution, we do not deal with crash between lawn mowers
-and assume a lawn mower can move on a square that already has a lawn mower.
+their final positions, after their moves have been executed. In this solution, we do not deal with crash between lawn mowers
+and assume a lawn mower can move on a square that already has a lawn mower on it.
 
 This solution has been written in pure Javascript and is meant to run on node.js (depends on the fs module to read input
 files on the disk).
