@@ -10,7 +10,7 @@ files on the disk).
 ## Warning:
 
 This solution has been developed and tested against node.js v14.15.4 (https://nodejs.org/download/release/v14.15.4/). It
-should work with any recent version of node.js but in case of any issue try please with this specific node.js version.
+should work with any recent version of node.js but in case of any issue please try with this specific node.js version.
 
 ## Running the program:
 
